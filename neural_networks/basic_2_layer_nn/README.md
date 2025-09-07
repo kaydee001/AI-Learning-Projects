@@ -3,17 +3,20 @@
 Implementation of a simple neural network from scratch using only NumPy.
 
 ## What This Does
+
 - Binary classification using a 2-layer neural network
 - Forward propagation with tanh and sigmoid activations
 - Backpropagation for gradient calculation
 - Gradient descent optimization
 
 ## Architecture
+
 - **Input Layer**: 2 features
-- **Hidden Layer**: 4 neurons (tanh activation)  
+- **Hidden Layer**: 4 neurons (tanh activation)
 - **Output Layer**: 1 neuron (sigmoid activation)
 
 ## Key Components
+
 - `sigmoid()`: Output activation function (0-1 range)
 - `forward_propagation()`: Computes predictions
 - `backward_propagation()`: Calculates gradients
@@ -21,4 +24,5 @@ Implementation of a simple neural network from scratch using only NumPy.
 - `train_nn()`: Main training loop
 
 ## Dataset
+
 Synthetic dataset where target = sin(x1) + cos(x2) > 0
