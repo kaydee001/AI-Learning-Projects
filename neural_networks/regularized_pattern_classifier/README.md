@@ -1,18 +1,18 @@
-# Regularized Pattern Classifier
+# Regularized Pattern Classifier with Advanced Optimization
 
-A neural network built from scratch to classify 2D overlapping clusters, implementing multiple regularization techniques to achieve 93.33% accuracy.
+A neural network built from scratch to classify 2D overlapping clusters, implementing regularization techniques and modern optimization algorithms to achieve robust performance.
 
 ## Problem
 
 - **Dataset**: 200 points in two overlapping clusters (binary classification)
 - **Challenge**: Started with 51% accuracy (random guessing) due to overfitting
-- **Goal**: Build generalizable classifier without external libraries
+- **Goal**: Build generalizable classifier without external libraries, exploring optimization algorithms
 
 ## Solution
 
 **Architecture**: Input(2) → Hidden(8, ReLU) → Output(1, Sigmoid)
 
-**Key Techniques Applied**:
+### Week 1: Regularization Techniques
 
 - **L2 Regularization**: Penalize large weights to prevent overfitting
 - **Dropout**: Randomly deactivate 20% of neurons during training
@@ -20,7 +20,18 @@ A neural network built from scratch to classify 2D overlapping clusters, impleme
 - **He Initialization**: Proper weight scaling for ReLU networks
 - **Bias/Variance Analysis**: Diagnose and fix model problems
 
-## Results
+### Week 2: Optimization Algorithms
+
+- **Mini-batch Gradient Descent**: Process data in batches of 32 for faster updates
+- **Momentum**: Build velocity in consistent directions, reduce oscillations
+- **RMSprop**: Adaptive learning rates per parameter based on gradient history
+- **Adam Optimizer**: Combine momentum + RMSprop for robust optimization
+- **Bias Correction**: Fix slow start problem from zero initialization
+- **Learning Rate Decay**: Automatically reduce learning rate over time
+
+## Results Progression
+
+### Week 1: Regularization Mastery
 
 | Approach            | Training Accuracy | Dev Accuracy | Status                      |
 | ------------------- | ----------------- | ------------ | --------------------------- |
@@ -29,3 +40,33 @@ A neural network built from scratch to classify 2D overlapping clusters, impleme
 | + Dropout           | ~90%              | 86.67%       | Additional Regularization   |
 | + Normalization     | ~90%              | 86.67%       | Better Training Dynamics    |
 | + He Initialization | ~90%              | **93.33%**   | Optimal Performance         |
+
+### Week 2: Optimization Algorithm Comparison
+
+| Optimizer                     | Dev Accuracy | Training Characteristics                    |
+| ----------------------------- | ------------ | ------------------------------------------- |
+| Mini-batch Gradient Descent   | 86.67%       | More frequent updates, noisy cost           |
+| + Momentum                    | 93.33%       | Smoother convergence, reduced oscillations  |
+| + RMSprop                     | 93.33%       | Adaptive learning rates, stable training    |
+| + Adam (no bias correction)   | 90.00%       | Combined benefits, different local minimum  |
+| + Adam (with bias correction) | 93.33%       | Fixed slow start, optimal performance       |
+| + Learning Rate Decay         | 86.67%       | Conservative fine-tuning, early convergence |
+
+## Key Learning Insights
+
+### Regularization (Week 1)
+
+- **L2 regularization** was most impactful for reducing overfitting
+- **Proper initialization** (He) crucial for ReLU networks
+- **Dropout + L2** provided complementary regularization effects
+- **Input normalization** improved training stability
+
+### Optimization (Week 2)
+
+- **Momentum** effectively reduced gradient oscillations
+- **RMSprop** automatically adapted learning rates per parameter
+- **Adam** combined best of both worlds but required bias correction
+- **Learning rate decay** needs careful tuning to avoid premature convergence
+- **Different optimizers** can find different local minima (explains accuracy variations)
+
+---
