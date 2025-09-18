@@ -70,3 +70,5 @@ A neural network built from scratch to classify 2D overlapping clusters, impleme
 - **Different optimizers** can find different local minima (explains accuracy variations)
 
 ---
+
+Built as part of learning neural networks from scratch! 🧠
