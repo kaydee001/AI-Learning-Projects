@@ -176,26 +176,24 @@ print("starting the grid search")
 print("------------------------")
 
 # defining the search space
-learning_rates = [0.00005, 0.0001, 0.0005]  
-hidden_sizes = [6, 8, 10]                    
-lambda_values = [0.05, 0.1, 0.2]
+learning_rates = [0.00005, 0.0001, 0.0005]  # 3 options
+hidden_sizes = [6, 8, 10] # 3 options           
+lambda_values = [0.05, 0.1, 0.2] # 3 options
 
+# tracking the best possible combinations from the search space
 best_test_accuracy = 0
 best_params = {}
 results = []
 
-# Exhaustive search: test all combinations (3 × 3 × 3 = 27 total)
+# testing from all the possible combinations (from the search space) -> 3x3x3 = 27 possible combinations
 for lr in learning_rates:
     for hidden in hidden_sizes:
         for lambd in lambda_values:
             # training the model with current parameter combinations
-            test_acc = train_model(X_train_norm, y_train, X_test_norm, y_test,
-                                 hidden_size=hidden, learning_rate=lr, lambd=lambd)
+            test_acc = train_model(X_train_norm, y_train, X_test_norm, y_test, hidden_size=hidden, learning_rate=lr, lambd=lambd)
             
             # storing the results
-            results.append({
-                'lr': lr, 'hidden': hidden, 'lambd': lambd, 'accuracy': test_acc
-            })
+            results.append({'lr': lr, 'hidden': hidden, 'lambd': lambd, 'accuracy': test_acc})
             
             print(f"lr: {lr:>8.5f}, hidden: {hidden:>2d}, lambda: {lambd:>4.2f} → accuracy: {test_acc:.2%}")
             
@@ -209,4 +207,4 @@ print("grid search complete")
 print("--------------------")
 print(f"optimal parameters : {best_params}")
 print(f"best test accuracy : {best_test_accuracy:.2%}")
-print("=" * 50)
+print("--------------------")
