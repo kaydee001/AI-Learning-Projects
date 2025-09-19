@@ -24,8 +24,9 @@ A neural network built from scratch to learn whether random points fall inside o
 
 ```
 distance = √[(x - 0.5)² + (y + 0.5)²]
-classify as inside if distance ≤ radius
 ```
+
+classify as inside if distance ≤ radius
 
 ## Results
 
