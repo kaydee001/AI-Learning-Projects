@@ -2,13 +2,13 @@
 
 A neural network built from scratch to classify 2D overlapping clusters, implementing regularization techniques and modern optimization algorithms to achieve robust performance.
 
-## Problem
+## The Problem
 
 - **Dataset**: 200 points in two overlapping clusters (binary classification)
 - **Challenge**: Started with 51% accuracy (random guessing) due to overfitting
 - **Goal**: Build generalizable classifier without external libraries, exploring optimization algorithms
 
-## Solution
+## The Solution
 
 **Architecture**: Input(2) → Hidden(8, ReLU) → Output(1, Sigmoid)
 
@@ -29,9 +29,17 @@ A neural network built from scratch to classify 2D overlapping clusters, impleme
 - **Bias Correction**: Fix slow start problem from zero initialization
 - **Learning Rate Decay**: Automatically reduce learning rate over time
 
+### Week 3: Hyperparameter Tuning
+
+- **Grid Search**: Systematic testing of parameter combinations
+- **Parameter Space**: Learning rates, hidden sizes, regularization strength
+- **Dev vs Test Reality**: Learned overfitting to validation set (100% dev → 46% test)
+- **Bug Fix**: Corrected Adam optimizer implementation (db1/db2 mix-up)
+- **Final Optimization**: Found optimal parameters through systematic search
+
 ## Results Progression
 
-### Week 1: Regularization Mastery
+### Week 1: Regularization Results
 
 | Approach            | Training Accuracy | Dev Accuracy | Status                      |
 | ------------------- | ----------------- | ------------ | --------------------------- |
@@ -52,22 +60,7 @@ A neural network built from scratch to classify 2D overlapping clusters, impleme
 | + Adam (with bias correction) | 93.33%       | Fixed slow start, optimal performance       |
 | + Learning Rate Decay         | 86.67%       | Conservative fine-tuning, early convergence |
 
-## Key Learning Insights
-
-### Regularization (Week 1)
-
-- **L2 regularization** was most impactful for reducing overfitting
-- **Proper initialization** (He) crucial for ReLU networks
-- **Dropout + L2** provided complementary regularization effects
-- **Input normalization** improved training stability
-
-### Optimization (Week 2)
-
-- **Momentum** effectively reduced gradient oscillations
-- **RMSprop** automatically adapted learning rates per parameter
-- **Adam** combined best of both worlds but required bias correction
-- **Learning rate decay** needs careful tuning to avoid premature convergence
-- **Different optimizers** can find different local minima (explains accuracy variations)
+**Final Results**: 73.33% test accuracy with LR=0.0001, Hidden=6, Lambda=0.1
 
 ---
 

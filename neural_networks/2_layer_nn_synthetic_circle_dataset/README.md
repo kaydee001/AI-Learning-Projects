@@ -1,37 +1,42 @@
 # Circle Classification Neural Network
 
-A simple neural network built from scratch using NumPy to classify points as inside or outside a circle.
+A neural network built from scratch to learn whether random points fall inside or outside a circle - demonstrating how neural networks can learn non-linear decision boundaries.
 
-## What it does
+## The Problem
 
-- Generates 100 random points in 2D space
-- Labels them as inside (red) or outside (blue) a circle
-- Trains a 2→4→1 neural network to learn the circular decision boundary
-- Uses ReLU activation in hidden layer and sigmoid in output layer
+- **Dataset**: 100 random 2D points scattered around coordinate space
+- **Challenge**: Classify points as inside or outside a specific circle
+- **Goal**: Build a neural network from scratch that learns the circular boundary without hardcoding the math
 
-## Architecture
+## The Solution
 
-```
-Input Layer (2 neurons) → Hidden Layer (4 neurons) → Output Layer (1 neuron)
-                ReLU activation              Sigmoid activation
-```
+**Architecture**: Input(2) → Hidden(4, ReLU) → Output(1, Sigmoid)
 
-## Dataset
+### Circle Parameters
 
 - **Center**: (0.5, -0.5)
 - **Radius**: 1.6546
-- **Points**: 100 random points
-- **Labels**: 0 (inside circle), 1 (outside circle)
+- **Classification**: 0 = inside (red), 1 = outside (blue)
+
+## What Makes This Interesting
+
+**Non-linear Problem**: A straight line can't separate points inside/outside a circle. The neural network must learn to approximate the distance formula:
+
+```
+distance = √[(x - 0.5)² + (y + 0.5)²]
+classify as inside if distance ≤ radius
+```
+
+## Results
+
+- **Initial Cost**: Printed to show starting error before learning
+- **Visualization**: Scatter plot with red (inside) and blue (outside) points
+- **Learning**: One gradient descent step demonstrates weight updates
 
 ## Example Output
 
 ![Dataset Visualization](./img.png)
 
-## What you'll see
-
-- Initial cost printed to console
-- Scatter plot showing:
-  - Red points: Inside the circle (label 0)
-  - Blue points: Outside the circle (label 1)
+---
 
 Built as part of learning neural networks from scratch! 🧠
