@@ -52,4 +52,4 @@ result = complete_cnn(test_img, filters, pool=True)
 
 ---
 
-Built as part of learning neural networks from scratch! 🧠
+Built as part of learning CNN from scratch! 🧠
