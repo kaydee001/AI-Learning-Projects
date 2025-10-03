@@ -50,6 +50,16 @@ filters = [[1, -1]]
 result = complete_cnn(test_img, filters, pool=True)
 ```
 
+## Real Image Results
+
+Applied manual convolution to an actual photograph:
+
+- Vertical edges: Detected left/right boundaries and vertical leaf veins
+- Horizontal edges: Detected top/bottom boundaries and horizontal structures
+- Combined magnitude: Complete edge outline regardless of direction
+
+![Edge detection](./output.png)
+
 ---
 
 Built as part of learning CNN from scratch! 🧠
